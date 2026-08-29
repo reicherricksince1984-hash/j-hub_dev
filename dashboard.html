@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダッシュボード | J-Hub - JLPT学習の、新しい標準。</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800;900&family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'M PLUS Rounded 1c', 'Zen Maru Gothic', sans-serif;
+            letter-spacing: 0.02em;
+        }
+        .font-pop-title {
+            font-family: 'Fredoka', 'Zen Maru Gothic', 'M PLUS Rounded 1c', sans-serif;
+        }
+        /* まるみのあるポップなカード装飾 */
+        .pop-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.05);
+        }
+
+        /* --------------------------------------------------
+         * スクロールアニメーション（ふわっと表示）設定
+         * -------------------------------------------------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-500 { transition-delay: 500ms; }
+        .delay-600 { transition-delay: 600ms; }
+    </style>
+</head>
+<body class="bg-[#f0f7ff] text-[#1e293b] antialiased min-h-screen flex flex-col justify-between selection:bg-[#a29bfe] selection:text-white">
+
+    <header class="w-full bg-[#f0f7ff]/90 backdrop-blur-md sticky top-0 z-50 border-b-2 border-[#e2e8f0]">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-bold">
+            <a href="#" class="font-pop-title text-2xl font-black tracking-wide hover:scale-105 transition-transform duration-300 inline-flex items-center space-x-[1px] group">
+                <span class="text-[#0066ff] inline-block transition-transform group-hover:-translate-y-0.5">J</span>
+                <span class="text-[#ffb703] inline-block transition-transform group-hover:-translate-y-0.5 delay-75">-</span>
+                <span class="text-[#ff4757] inline-block transition-transform group-hover:-translate-y-0.5 delay-100">H</span>
+                <span class="text-[#00b894] inline-block transition-transform group-hover:-translate-y-0.5 delay-150">u</span>
+                <span class="text-[#a29bfe] inline-block transition-transform group-hover:-translate-y-0.5 delay-200">b</span>
+                <span class="text-[#ff7675] inline-block transition-transform group-hover:rotate-12 group-hover:scale-125 delay-300 ml-[1px]">!</span>
+            </a>
+
+            <div class="flex items-center space-x-4">
+                <div class="hidden sm:flex flex-col text-right">
+                    <span class="text-xs font-bold text-[#1e293b]">山田 太郎 さん</span>
+                    <span class="text-[10px] font-bold text-[#00b894] bg-[#e6fffa] px-2 py-0.5 rounded-full">1か月プラン</span>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-[#0066ff] text-white flex items-center justify-center font-bold text-sm shadow-md border-2 border-white">
+                    山
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl w-full mx-auto px-6 py-8 space-y-8">
+        
+        <section class="reveal delay-100 bg-gradient-to-r from-[#0066ff] to-[#a29bfe] rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+            <div class="relative z-10 space-y-3 max-w-xl">
+                <span class="inline-block text-xs font-extrabold tracking-wider bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/30">
+                    CONTINUE LEARNING 🔥
+                </span>
+                <h1 class="text-2xl sm:text-3xl font-black">おかえりなさい、山田さん！</h1>
+                <p class="text-xs sm:text-sm font-medium text-white/90 leading-relaxed">
+                    前回の続き：<strong>N3コース「文字・語彙 第5章」</strong>から学習を再開しましょう！
+                </p>
+                <div class="pt-2">
+                    <a href="#" class="inline-block bg-white text-[#0066ff] font-bold px-6 py-3 rounded-full hover:bg-[#f0f7ff] transition shadow-lg active:scale-95 text-xs sm:text-sm">
+                        続きから学習を始める 🚀
+                    </a>
+                </div>
+            </div>
+            <div class="absolute -right-6 -bottom-8 opacity-10 text-9xl font-black font-pop-title select-none pointer-events-none">
+                J-Hub!
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <div class="flex items-center justify-between reveal delay-200">
+                <h2 class="font-pop-title text-xl sm:text-2xl font-black text-[#1e293b] flex items-center gap-2">
+                    <span>🎯</span> 学習コースを選ぶ
+                </h2>
+                <span class="text-xs font-bold text-[#64748b]">N4 〜 N1 完全対応</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                
+                <div class="reveal delay-300 pop-card rounded-3xl p-6 hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer border-t-8 border-t-[#00b894]">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-2xl font-black font-pop-title text-[#00b894] bg-[#e6fffa] px-3 py-1 rounded-2xl border border-[#00b894]/20">N4</span>
+                        <span class="text-xs font-bold text-[#64748b] bg-[#f1f5f9] px-2.5 py-1 rounded-full">初級レベル</span>
+                    </div>
+                    <h3 class="font-bold text-base text-[#1e293b] mb-1 group-hover:text-[#00b894] transition">N4 基礎コース</h3>
+                    <p class="text-xs text-[#64748b] font-medium mb-4">基本的な日本語を理解し、日常会話のスムーズな習得を目指します。</p>
+                    
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[11px] font-bold text-[#64748b]">
+                            <span>進捗率</span>
+                            <span class="text-[#00b894]">100% (完了)</span>
+                        </div>
+                        <div class="w-full bg-[#e2e8f0] h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-[#00b894] h-full rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal delay-400 pop-card rounded-3xl p-6 hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer border-t-8 border-t-[#0066ff]">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-2xl font-black font-pop-title text-[#0066ff] bg-[#e0f2fe] px-3 py-1 rounded-2xl border border-[#0066ff]/20">N3</span>
+                        <span class="text-xs font-bold text-[#0066ff] bg-[#e0f2fe] px-2.5 py-1 rounded-full">学習中 ✨</span>
+                    </div>
+                    <h3 class="font-bold text-base text-[#1e293b] mb-1 group-hover:text-[#0066ff] transition">N3 中級コース</h3>
+                    <p class="text-xs text-[#64748b] font-medium mb-4">日常的な場面で使われる日本語をある程度理解できるレベルを目指します。</p>
+                    
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[11px] font-bold text-[#64748b]">
+                            <span>進捗率</span>
+                            <span class="text-[#0066ff]">45%</span>
+                        </div>
+                        <div class="w-full bg-[#e2e8f0] h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-[#0066ff] h-full rounded-full" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal delay-500 pop-card rounded-3xl p-6 hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer border-t-8 border-t-[#ffb703]">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-2xl font-black font-pop-title text-[#d97706] bg-[#fffbeb] px-3 py-1 rounded-2xl border border-[#ffb703]/30">N2</span>
+                        <span class="text-xs font-bold text-[#64748b] bg-[#f1f5f9] px-2.5 py-1 rounded-full">中上級レベル</span>
+                    </div>
+                    <h3 class="font-bold text-base text-[#1e293b] mb-1 group-hover:text-[#d97706] transition">N2 実践コース</h3>
+                    <p class="text-xs text-[#64748b] font-medium mb-4">日常的な場面に加え、幅広い場面で使われる日本語の理解を目指します。</p>
+                    
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[11px] font-bold text-[#64748b]">
+                            <span>進捗率</span>
+                            <span>0%</span>
+                        </div>
+                        <div class="w-full bg-[#e2e8f0] h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-[#ffb703] h-full rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal delay-600 pop-card rounded-3xl p-6 hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer border-t-8 border-t-[#ff4757]">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-2xl font-black font-pop-title text-[#ff4757] bg-[#ffeae6] px-3 py-1 rounded-2xl border border-[#ff4757]/20">N1</span>
+                        <span class="text-xs font-bold text-[#64748b] bg-[#f1f5f9] px-2.5 py-1 rounded-full">上級レベル</span>
+                    </div>
+                    <h3 class="font-bold text-base text-[#1e293b] mb-1 group-hover:text-[#ff4757] transition">N1 上級マスター</h3>
+                    <p class="text-xs text-[#64748b] font-medium mb-4">幅広い場面で使われる日本語を高度に理解し、自在に使いこなします。</p>
+                    
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[11px] font-bold text-[#64748b]">
+                            <span>進捗率</span>
+                            <span>0%</span>
+                        </div>
+                        <div class="w-full bg-[#e2e8f0] h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-[#ff4757] h-full rounded-full" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="reveal delay-500 pop-card rounded-3xl p-6 sm:p-8 space-y-4">
+            <h2 class="font-pop-title text-lg sm:text-xl font-black text-[#1e293b] flex items-center gap-2">
+                <span>📚</span> 分野別トレーニング
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <a href="#" class="p-4 bg-[#f8fafc] hover:bg-[#e0f2fe] border-2 border-[#e2e8f0] hover:border-[#0066ff] rounded-2xl text-center transition group">
+                    <div class="text-3xl mb-1 group-hover:scale-110 transition-transform">🔤</div>
+                    <div class="font-bold text-xs sm:text-sm text-[#1e293b] group-hover:text-[#0066ff]">文字・語彙</div>
+                </a>
+                <a href="#" class="p-4 bg-[#f8fafc] hover:bg-[#e6fffa] border-2 border-[#e2e8f0] hover:border-[#00b894] rounded-2xl text-center transition group">
+                    <div class="text-3xl mb-1 group-hover:scale-110 transition-transform">📝</div>
+                    <div class="font-bold text-xs sm:text-sm text-[#1e293b] group-hover:text-[#00b894]">文法</div>
+                </a>
+                <a href="#" class="p-4 bg-[#f8fafc] hover:bg-[#fffbeb] border-2 border-[#e2e8f0] hover:border-[#ffb703] rounded-2xl text-center transition group">
+                    <div class="text-3xl mb-1 group-hover:scale-110 transition-transform">📖</div>
+                    <div class="font-bold text-xs sm:text-sm text-[#1e293b] group-hover:text-[#d97706]">読解</div>
+                </a>
+                <a href="#" class="p-4 bg-[#f8fafc] hover:bg-[#ffeae6] border-2 border-[#e2e8f0] hover:border-[#ff4757] rounded-2xl text-center transition group">
+                    <div class="text-3xl mb-1 group-hover:scale-110 transition-transform">🎧</div>
+                    <div class="font-bold text-xs sm:text-sm text-[#1e293b] group-hover:text-[#ff4757]">聴解</div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#f0f7ff] text-[#64748b] py-6 border-t-2 border-[#e2e8f0] text-xs font-bold">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div class="font-pop-title text-base font-black tracking-wide inline-flex items-center space-x-[1px]">
+                <span class="text-[#0066ff]">J</span>
+                <span class="text-[#ffb703]">-</span>
+                <span class="text-[#ff4757]">H</span>
+                <span class="text-[#00b894]">u</span>
+                <span class="text-[#a29bfe]">b</span>
+                <span class="text-[#ff7675] ml-[1px]">!</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 text-[11px]">
+                <a href="#" class="hover:text-[#0066ff] transition">利用規約</a>
+                <a href="#" class="hover:text-[#0066ff] transition">プライバシーポリシー</a>
+                <a href="#" class="hover:text-[#0066ff] transition">特定商取引法に基づく表記</a>
+                <a href="#" class="hover:text-[#0066ff] transition">お問い合わせ</a>
+            </div>
+            <div class="text-[11px]">&copy; 2026 J-Hub Inc. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ふわっと表示アニメーション
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+            }, 50);
+        });
+    </script>
+</body>
+</html>
