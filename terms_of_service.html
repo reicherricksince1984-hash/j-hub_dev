@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約 | J-Hub - JLPT学習の、新しい標準。</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: ポップで親しみやすい丸ゴシック＆ラウンド系英字フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800;900&family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'M PLUS Rounded 1c', 'Zen Maru Gothic', sans-serif;
+            letter-spacing: 0.02em;
+        }
+        .font-pop-title {
+            font-family: 'Fredoka', 'Zen Maru Gothic', 'M PLUS Rounded 1c', sans-serif;
+        }
+        /* まるみのあるポップなカード装飾 */
+        .pop-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.08);
+        }
+
+        /* --------------------------------------------------
+         * スクロールアニメーション（ふわっと表示）設定
+         * -------------------------------------------------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 時間差表示の遅延設定 */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+    </style>
+</head>
+<body class="bg-[#f0f7ff] text-[#1e293b] antialiased min-h-screen flex flex-col justify-between selection:bg-[#a29bfe] selection:text-white">
+
+    <!-- 1. ヘッダー -->
+    <header class="w-full bg-[#f0f7ff]/90 backdrop-blur-md sticky top-0 z-50 border-b-2 border-[#e2e8f0]">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-bold">
+            <!-- カラフル・マルチカラーテキストロゴ -->
+            <a href="index.html" class="font-pop-title text-2xl font-black tracking-wide hover:scale-105 transition-transform duration-300 inline-flex items-center space-x-[1px] group">
+                <span class="text-[#0066ff] inline-block transition-transform group-hover:-translate-y-0.5">J</span>
+                <span class="text-[#ffb703] inline-block transition-transform group-hover:-translate-y-0.5 delay-75">-</span>
+                <span class="text-[#ff4757] inline-block transition-transform group-hover:-translate-y-0.5 delay-100">H</span>
+                <span class="text-[#00b894] inline-block transition-transform group-hover:-translate-y-0.5 delay-150">u</span>
+                <span class="text-[#a29bfe] inline-block transition-transform group-hover:-translate-y-0.5 delay-200">b</span>
+                <span class="text-[#ff7675] inline-block transition-transform group-hover:rotate-12 group-hover:scale-125 delay-300 ml-[1px]">!</span>
+            </a>
+            <a href="create_account.html" class="text-xs sm:text-sm font-bold text-[#64748b] hover:text-[#0066ff] transition inline-flex items-center">
+                ← 会員登録へ戻る
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. メインコンテンツ -->
+    <main class="flex-grow py-12 px-6">
+        <div class="max-w-3xl mx-auto">
+            
+            <!-- タイトルエリア -->
+            <div class="text-center mb-8 reveal delay-100">
+                <span class="inline-block text-xs font-extrabold tracking-wider text-[#0066ff] bg-[#e0f2fe] px-3.5 py-1 rounded-full mb-3 shadow-sm border border-[#0066ff]/20">
+                    TERMS OF SERVICE 📜
+                </span>
+                <h1 class="font-pop-title text-2xl sm:text-3xl font-black text-[#1e293b]">
+                    利用規約
+                </h1>
+                <p class="text-xs text-[#64748b] font-medium mt-2">
+                    最終改定日: 2026年4月1日
+                </p>
+            </div>
+
+            <!-- 利用規約コンテンツカード -->
+            <div class="reveal delay-200 pop-card rounded-3xl p-6 sm:p-10 space-y-6 text-sm leading-relaxed text-[#334155]">
+                
+                <p class="font-medium bg-[#f8fafc] p-4 rounded-2xl border border-[#e2e8f0] text-xs sm:text-sm">
+                    この利用規約（以下「本規約」といいます。）は、J-Hub Inc.（以下「当社」といいます。）が提供するJLPT学習サービス「J-Hub」（以下「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆様（以下「ユーザー」といいます。）には、本規約に従って本サービスをご利用いただきます。
+                </p>
+
+                <!-- 条項一覧 -->
+                <div class="space-y-4">
+                    
+                    <!-- 第1条 -->
+                    <div class="border-2 border-[#e2e8f0] rounded-2xl overflow-hidden bg-white">
+                        <button type="button" class="accordion-btn w-full px-5 py-4 text-left font-bold text-[#1e293b] bg-[#f8fafc] hover:bg-[#f1f5f9] flex justify-between items-center transition">
+                            <span>第1条（適用）</span>
+                            <span class="icon text-[#0066ff] transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 border-t border-[#e2e8f0] text-xs sm:text-sm space-y-2">
+                            <p>1. 本規約は、ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。</p>
+                            <p>2. 当社は本サービスに関し、本規約のほか、ご利用にあたってのルール等、各種の規定（以下「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず、本規約の一部を構成するものとします。</p>
+                        </div>
+                    </div>
+
+                    <!-- 第2条 -->
+                    <div class="border-2 border-[#e2e8f0] rounded-2xl overflow-hidden bg-white">
+                        <button type="button" class="accordion-btn w-full px-5 py-4 text-left font-bold text-[#1e293b] bg-[#f8fafc] hover:bg-[#f1f5f9] flex justify-between items-center transition">
+                            <span>第2条（利用登録）</span>
+                            <span class="icon text-[#0066ff] transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 border-t border-[#e2e8f0] text-xs sm:text-sm space-y-2">
+                            <p>1. 本サービスにおいては、登録希望者が本規約に同意の上、当社の定める方法によって利用登録を申請し、当社がこれを承認することによって、利用登録が完了するものとします。</p>
+                            <p>2. 当社は、利用登録の申請者に以下の事由があると判断した場合、利用登録の申請を承認しないことがあり、その理由については一切の開示義務を負わないものとします。</p>
+                            <ul class="list-disc pl-5 space-y-1 text-xs">
+                                <li>利用登録の申請に際して虚偽の事項を届け出た場合</li>
+                                <li>本規約に違反したことがある者からの申請である場合</li>
+                                <li>その他、当社が利用登録を相当でないと判断した場合</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 第3条 -->
+                    <div class="border-2 border-[#e2e8f0] rounded-2xl overflow-hidden bg-white">
+                        <button type="button" class="accordion-btn w-full px-5 py-4 text-left font-bold text-[#1e293b] bg-[#f8fafc] hover:bg-[#f1f5f9] flex justify-between items-center transition">
+                            <span>第3条（ユーザーIDおよびパスワードの管理）</span>
+                            <span class="icon text-[#0066ff] transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 border-t border-[#e2e8f0] text-xs sm:text-sm space-y-2">
+                            <p>1. ユーザーは、自己の責任において、本サービスのユーザーIDおよびパスワードを適切に管理するものとします。</p>
+                            <p>2. ユーザーは、いかなる場合にも、ユーザーIDおよびパスワードを第三者に譲渡または貸与し、もしくは第三者と共用することはできません。</p>
+                        </div>
+                    </div>
+
+                    <!-- 第4条 -->
+                    <div class="border-2 border-[#e2e8f0] rounded-2xl overflow-hidden bg-white">
+                        <button type="button" class="accordion-btn w-full px-5 py-4 text-left font-bold text-[#1e293b] bg-[#f8fafc] hover:bg-[#f1f5f9] flex justify-between items-center transition">
+                            <span>第4条（利用料金および支払方法）</span>
+                            <span class="icon text-[#0066ff] transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 border-t border-[#e2e8f0] text-xs sm:text-sm space-y-2">
+                            <p>1. ユーザーは、本サービスの有料対価として、当社が別途定め、本ウェブサイトに表示する利用料金を、当社が指定する方法（クレジットカード決済または指定口座振り込み）により支払うものとします。</p>
+                            <p>2. ユーザーが利用料金の支払を遅滞した場合、ユーザーは年14.6％の割合による遅延損害金を支払うものとします。</p>
+                        </div>
+                    </div>
+
+                    <!-- 第5条 -->
+                    <div class="border-2 border-[#e2e8f0] rounded-2xl overflow-hidden bg-white">
+                        <button type="button" class="accordion-btn w-full px-5 py-4 text-left font-bold text-[#1e293b] bg-[#f8fafc] hover:bg-[#f1f5f9] flex justify-between items-center transition">
+                            <span>第5条（禁止事項）</span>
+                            <span class="icon text-[#0066ff] transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 border-t border-[#e2e8f0] text-xs sm:text-sm space-y-2">
+                            <p>ユーザーは、本サービスの利用にあたり、以下の行為をしてはなりません。</p>
+                            <ul class="list-disc pl-5 space-y-1 text-xs">
+                                <li>法令または公序良俗に違反する行為</li>
+                                <li>犯罪行為に関連する行為</li>
+                                <li>当社のサーバーまたはネットワークの機能を破壊したり、妨害したりする行為</li>
+                                <li>当社のサービスの運営を妨害するおそれのある行為</li>
+                                <li>他のユーザーに関する個人情報等を収集または蓄積する行為</li>
+                                <li>不正アクセスをし、またはこれを試みる行為</li>
+                                <li>本サービスのコンテンツ（教材データ等）を無断で転載、複製、配布する行為</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 第6条 -->
+                    <div class="border-2 border-[#e2e8f0] rounded-2xl overflow-hidden bg-white">
+                        <button type="button" class="accordion-btn w-full px-5 py-4 text-left font-bold text-[#1e293b] bg-[#f8fafc] hover:bg-[#f1f5f9] flex justify-between items-center transition">
+                            <span>第6条（免責事項・サービス変更・終了）</span>
+                            <span class="icon text-[#0066ff] transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content hidden px-5 py-4 border-t border-[#e2e8f0] text-xs sm:text-sm space-y-2">
+                            <p>1. 当社は、本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティ等に関する欠陥、エラーやバグ、権利侵害等を含みます。）がないことを明示的にも黙示的にも保証しておりません。</p>
+                            <p>2. 当社は、ユーザーに通知することなく、本サービスの内容を変更しまたは本サービスの提供を中止することができるものとし、これによってユーザーに生じた損害について一切の責任を負いません。</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 戻るボタンエリア -->
+                <div class="pt-6 border-t-2 border-[#e2e8f0] text-center">
+                    <a href="index.html" class="inline-block bg-[#0066ff] text-white font-bold px-8 py-3.5 rounded-full hover:bg-[#0052cc] transition shadow-md active:scale-95 text-xs sm:text-sm">
+                        利用規約に同意して戻る ✨
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 3. フッター -->
+    <footer class="bg-[#f0f7ff] text-[#64748b] py-6 border-t-2 border-[#e2e8f0] text-xs font-bold">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div class="font-pop-title text-base font-black tracking-wide inline-flex items-center space-x-[1px]">
+                <span class="text-[#0066ff]">J</span>
+                <span class="text-[#ffb703]">-</span>
+                <span class="text-[#ff4757]">H</span>
+                <span class="text-[#00b894]">u</span>
+                <span class="text-[#a29bfe]">b</span>
+                <span class="text-[#ff7675] ml-[1px]">!</span>
+            </div>
+            <div class="flex space-x-4 text-[11px]">
+                <a href="terms_of_service.html" class="hover:text-[#0066ff] transition">利用規約</a>
+                <a href="privacy_policy.html" class="hover:text-[#0066ff] transition">プライバシーポリシー</a>
+                <a href="contact.html" class="text-[#0066ff] transition">お問い合わせ</a>
+            </div>
+            <div class="text-[11px]">&copy; 2026 J-Hub Inc. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ふわっと表示アニメーション
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+            }, 50);
+
+            // アコーディオンの開閉処理
+            const accordionBtns = document.querySelectorAll('.accordion-btn');
+
+            accordionBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('.icon');
+
+                    // トグル処理
+                    content.classList.toggle('hidden');
+                    if (content.classList.contains('hidden')) {
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
