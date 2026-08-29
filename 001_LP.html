@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-Hub | JLPT学習の、新しい標準。</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: ポップで親しみやすい丸ゴシック＆ラウンド系英字フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800;900&family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'M PLUS Rounded 1c', 'Zen Maru Gothic', sans-serif;
+            letter-spacing: 0.02em;
+        }
+        .font-pop-title {
+            font-family: 'Fredoka', 'Zen Maru Gothic', 'M PLUS Rounded 1c', sans-serif;
+        }
+        /* ロゴカラーに合わせたマルチカラーグラデーション */
+        .text-gradient-multicolor {
+            background: linear-gradient(135deg, #0066ff 0%, #a29bfe 50%, #ff4757 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-navy {
+            background: linear-gradient(180deg, #1e293b 0%, #334155 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* まるみのあるポップなカード装飾 */
+        .pop-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid #e2e8f0;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .pop-card:hover {
+            transform: translateY(-6px) scale(1.01) !important;
+            box-shadow: 0 16px 32px rgba(0, 102, 255, 0.12);
+        }
+        /* おすすめプラン専用カード */
+        .pop-card-featured {
+            background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+            border: 3px solid #0066ff;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .pop-card-featured:hover {
+            transform: translateY(-8px) scale(1.02) !important;
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.2);
+        }
+
+        /* --------------------------------------------------
+         * スクロールアニメーション（ふわっと表示）設定
+         * -------------------------------------------------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-[#f0f7ff] text-[#1e293b] antialiased selection:bg-[#a29bfe] selection:text-white">
+
+    <!-- 1. ヘッダー -->
+    <header class="fixed top-0 left-0 w-full bg-[#f0f7ff]/90 backdrop-blur-md z-50 border-b-2 border-[#e2e8f0] transition-all">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-bold">
+            <!-- カラフル・マルチカラーテキストロゴ -->
+            <a href="#" class="font-pop-title text-2xl font-black tracking-wide hover:scale-105 transition-transform duration-300 inline-flex items-center space-x-[1px] group">
+                <span class="text-[#0066ff] inline-block transition-transform group-hover:-translate-y-0.5">J</span>
+                <span class="text-[#ffb703] inline-block transition-transform group-hover:-translate-y-0.5 delay-75">-</span>
+                <span class="text-[#ff4757] inline-block transition-transform group-hover:-translate-y-0.5 delay-100">H</span>
+                <span class="text-[#00b894] inline-block transition-transform group-hover:-translate-y-0.5 delay-150">u</span>
+                <span class="text-[#a29bfe] inline-block transition-transform group-hover:-translate-y-0.5 delay-200">b</span>
+                <span class="text-[#ff7675] inline-block transition-transform group-hover:rotate-12 group-hover:scale-125 delay-300 ml-[1px]">!</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-[#475569] tracking-wide">
+                <a href="#features" class="hover:text-[#0066ff] transition">特長</a>
+                <a href="#pricing" class="hover:text-[#0066ff] transition">料金プラン</a>
+                <a href="#faq" class="hover:text-[#0066ff] transition">よくある質問</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-[#475569] hover:text-[#0066ff] transition">ログイン</a>
+                <a href="#cta" class="bg-[#0066ff] text-white px-5 py-2 rounded-full font-bold hover:bg-[#0052cc] hover:shadow-lg transition shadow-md active:scale-95">
+                    無料体験♪
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. ファーストビュー (Hero Section) -->
+    <section class="pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="reveal">
+                <span class="inline-block text-xs font-extrabold tracking-wider text-[#0066ff] bg-[#e0f2fe] px-4 py-1.5 rounded-full mb-5 shadow-sm border border-[#0066ff]/20">
+                    ✨ 楽しく学べる新感覚JLPT対策 ✨
+                </span>
+            </div>
+            <h1 class="reveal font-pop-title text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-gradient-navy mb-6 leading-[1.25]" style="transition-delay: 100ms;">
+                <span class="inline-block whitespace-nowrap">最短ルートで、</span><br class="hidden sm:inline">
+                <span class="text-gradient-multicolor inline-block whitespace-nowrap">JLPT合格へ！</span>
+            </h1>
+            <p class="reveal text-base md:text-lg text-[#64748b] font-medium max-w-2xl mx-auto mb-10 leading-relaxed text-left sm:text-center" style="transition-delay: 200ms;">
+                N4〜N1対応！サクサク解ける問題演習と見やすいデータ分析で、毎日の日本語学習をもっと楽しく、もっとスマートに。
+            </p>
+            
+            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 mb-8" style="transition-delay: 300ms;">
+                <a href="#cta" class="w-full sm:w-auto bg-[#ff4757] text-white font-bold text-base px-9 py-4 rounded-full hover:bg-[#ff2e44] hover:shadow-xl transition shadow-lg active:scale-95">
+                    🚀 14日間無料体験をはじめる
+                </a>
+            </div>
+
+            <!-- プロダクトビジュアル -->
+            <div class="reveal mt-14 relative max-w-4xl mx-auto" style="transition-delay: 400ms;">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-[#1e293b]">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80" alt="J-Hub 学習ダッシュボード" class="w-full h-[300px] sm:h-[450px] object-cover opacity-90 hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 特長 (Features Section) -->
+    <section id="features" class="py-24 bg-[#f0f7ff] border-t-2 border-[#e2e8f0]">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- セクションタイトル -->
+            <div class="reveal text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-pop-title text-sm font-extrabold tracking-widest text-[#0066ff] uppercase mb-2">FEATURES</h2>
+                <p class="font-pop-title text-xl sm:text-3xl md:text-4xl font-black tracking-tight text-[#1e293b] whitespace-nowrap">
+                    <span class="inline-flex items-center space-x-[0px]">
+                        <span class="text-[#0066ff]">J</span>
+                        <span class="text-[#ffb703]">-</span>
+                        <span class="text-[#ff4757]">H</span>
+                        <span class="text-[#00b894]">u</span>
+                        <span class="text-[#a29bfe]">b</span>
+                        <span class="text-[#ff7675] ml-[1px]">!</span>
+                    </span> が選ばれる3つの理由 💡
+                </p>
+                <p class="text-sm font-medium text-[#64748b] mt-3 text-left sm:text-center">
+                    効率的な学習メカニズムと継続しやすい仕組みで、合格までの道のりを強力にサポートします。
+                </p>
+            </div>
+
+            <!-- 特長カードグリッド -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- 特長 1: AI分析 (ブルー) -->
+                <div class="reveal pop-card rounded-3xl p-8 flex flex-col items-start hover:border-[#0066ff]" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-[#e0f2fe] text-[#0066ff] rounded-2xl flex items-center justify-center text-2xl font-black mb-6 shadow-sm border border-[#0066ff]/20">
+                        🎯
+                    </div>
+                    <span class="text-xs font-extrabold text-[#0066ff] uppercase tracking-wider mb-1">Feature 01</span>
+                    <h3 class="font-pop-title text-2xl font-bold text-[#1e293b] mb-3">AIによる弱点分析</h3>
+                    <p class="text-sm text-[#64748b] font-medium leading-relaxed">
+                        解答データをリアルタイムで解析。苦手な文法や語彙を自動抽出し、あなた専用の復習メニューを生成します。
+                    </p>
+                </div>
+
+                <!-- 特長 2: リアル模擬試験 (グリーン) -->
+                <div class="reveal pop-card rounded-3xl p-8 flex flex-col items-start hover:border-[#00b894]" style="transition-delay: 250ms;">
+                    <div class="w-14 h-14 bg-[#e6fcff] text-[#00b894] rounded-2xl flex items-center justify-center text-2xl font-black mb-6 shadow-sm border border-[#00b894]/20">
+                        📝
+                    </div>
+                    <span class="text-xs font-extrabold text-[#00b894] uppercase tracking-wider mb-1">Feature 02</span>
+                    <h3 class="font-pop-title text-2xl font-bold text-[#1e293b] mb-3">実践的な本番モード</h3>
+                    <p class="text-sm text-[#64748b] font-medium leading-relaxed">
+                        実際の試験と同じ時間配分・問題形式で練習可能。本番さながらの緊迫感で実力を確認し、時間配分をマスターできます。
+                    </p>
+                </div>
+
+                <!-- 特長 3: どこでも隙間時間 (パープル) -->
+                <div class="reveal pop-card rounded-3xl p-8 flex flex-col items-start hover:border-[#a29bfe]" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 bg-[#f3e8ff] text-[#a29bfe] rounded-2xl flex items-center justify-center text-2xl font-black mb-6 shadow-sm border border-[#a29bfe]/30">
+                        📱
+                    </div>
+                    <span class="text-xs font-extrabold text-[#a29bfe] uppercase tracking-wider mb-1">Feature 03</span>
+                    <h3 class="font-pop-title text-2xl font-bold text-[#1e293b] mb-3">スマホで1日5分から</h3>
+                    <p class="text-sm text-[#64748b] font-medium leading-relaxed">
+                        通勤・通学中や休憩時間など、すきま時間にサクッと解ける1問一答形式。ゲーム感覚でサクサク習慣化できます。
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. 料金プラン (Pricing Section) -->
+    <section id="pricing" class="py-24 bg-white border-t-2 border-[#e2e8f0]">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- セクションタイトル -->
+            <div class="reveal text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-pop-title text-sm font-extrabold tracking-widest text-[#0066ff] uppercase mb-2">PRICING PLAN</h2>
+                <p class="font-pop-title text-xl sm:text-3xl md:text-4xl font-black tracking-tight text-[#1e293b] whitespace-nowrap">
+                    選べるシンプルな料金プラン
+                </p>
+                <p class="text-sm font-medium text-[#64748b] mt-3 text-left sm:text-center">
+                    月額 ¥680 〜。いつでも気軽にスタートできます！
+                </p>
+            </div>
+
+            <!-- プランカード -->
+            <div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+                    
+                    <!-- 1ヶ月プラン（ブルーアクセント） -->
+                    <div class="reveal pop-card rounded-3xl p-7 flex flex-col justify-between hover:border-[#0066ff]" style="transition-delay: 100ms;">
+                        <div>
+                            <div class="font-pop-title text-xs font-extrabold text-[#0066ff] uppercase tracking-wider mb-1">1 Month</div>
+                            <h4 class="font-pop-title text-xl font-bold text-[#1e293b]">1ヶ月プラン</h4>
+                            <p class="text-xs text-[#64748b] font-medium mt-1 mb-6">直前のラストスパートに！</p>
+                            
+                            <div class="mb-6">
+                                <span class="font-pop-title text-4xl font-black text-[#1e293b]">¥980</span>
+                                <span class="text-xs font-bold text-[#94a3b8]"> / 月</span>
+                                <div class="text-xs text-[#94a3b8] font-bold mt-1">一括払い: ¥980</div>
+                            </div>
+
+                            <ul class="space-y-3 text-xs font-bold text-[#475569] pt-6 border-t-2 border-slate-100 mb-8">
+                                <li class="flex items-center"><span class="text-[#0066ff] mr-2">✔</span>全レベル（N1〜N5）対応</li>
+                                <li class="flex items-center"><span class="text-[#0066ff] mr-2">✔</span>分野別問題・模擬試験</li>
+                                <li class="flex items-center"><span class="text-[#0066ff] mr-2">✔</span>AI弱点分析レポート</li>
+                            </ul>
+                        </div>
+                        <a href="#cta" class="block text-center bg-[#f1f5f9] text-[#1e293b] font-bold py-3 rounded-full text-xs hover:bg-[#0066ff] hover:text-white transition">選択する</a>
+                    </div>
+
+                    <!-- 3ヶ月プラン（グリーンアクセント） -->
+                    <div class="reveal pop-card rounded-3xl p-7 flex flex-col justify-between hover:border-[#00b894]" style="transition-delay: 200ms;">
+                        <div>
+                            <div class="font-pop-title text-xs font-extrabold text-[#00b894] uppercase tracking-wider mb-1">Save 10%</div>
+                            <h4 class="font-pop-title text-xl font-bold text-[#1e293b]">3ヶ月プラン</h4>
+                            <p class="text-xs text-[#64748b] font-medium mt-1 mb-6">短期集中で合格を狙う！</p>
+                            
+                            <div class="mb-6">
+                                <span class="font-pop-title text-4xl font-black text-[#1e293b]">¥880</span>
+                                <span class="text-xs font-bold text-[#94a3b8]"> / 月換算</span>
+                                <div class="text-xs text-[#00b894] font-bold mt-1">一括払い: ¥2,640</div>
+                            </div>
+
+                            <ul class="space-y-3 text-xs font-bold text-[#475569] pt-6 border-t-2 border-slate-100 mb-8">
+                                <li class="flex items-center"><span class="text-[#00b894] mr-2">✔</span>全レベル（N1〜N5）対応</li>
+                                <li class="flex items-center"><span class="text-[#00b894] mr-2">✔</span>分野別問題・模擬試験</li>
+                                <li class="flex items-center"><span class="text-[#00b894] mr-2">✔</span>AI弱点分析レポート</li>
+                            </ul>
+                        </div>
+                        <a href="#cta" class="block text-center bg-[#f1f5f9] text-[#1e293b] font-bold py-3 rounded-full text-xs hover:bg-[#00b894] hover:text-white transition">選択する</a>
+                    </div>
+
+                    <!-- 6ヶ月プラン（パープルアクセント） -->
+                    <div class="reveal pop-card rounded-3xl p-7 flex flex-col justify-between hover:border-[#a29bfe]" style="transition-delay: 300ms;">
+                        <div>
+                            <div class="font-pop-title text-xs font-extrabold text-[#a29bfe] uppercase tracking-wider mb-1">Save 20%</div>
+                            <h4 class="font-pop-title text-xl font-bold text-[#1e293b]">6ヶ月プラン</h4>
+                            <p class="text-xs text-[#64748b] font-medium mt-1 mb-6">試験1回分をじっくり準備！</p>
+                            
+                            <div class="mb-6">
+                                <span class="font-pop-title text-4xl font-black text-[#1e293b]">¥780</span>
+                                <span class="text-xs font-bold text-[#94a3b8]"> / 月換算</span>
+                                <div class="text-xs text-[#a29bfe] font-bold mt-1">一括払い: ¥4,680</div>
+                            </div>
+
+                            <ul class="space-y-3 text-xs font-bold text-[#475569] pt-6 border-t-2 border-slate-100 mb-8">
+                                <li class="flex items-center"><span class="text-[#a29bfe] mr-2">✔</span>全レベル（N1〜N5）対応</li>
+                                <li class="flex items-center"><span class="text-[#a29bfe] mr-2">✔</span>分野別問題・模擬試験</li>
+                                <li class="flex items-center"><span class="text-[#a29bfe] mr-2">✔</span>AI弱点分析レポート</li>
+                            </ul>
+                        </div>
+                        <a href="#cta" class="block text-center bg-[#f1f5f9] text-[#1e293b] font-bold py-3 rounded-full text-xs hover:bg-[#a29bfe] hover:text-white transition">選択する</a>
+                    </div>
+
+                    <!-- 12ヶ月（ハイライトプラン：ポップで明るい統一デザイン） -->
+                    <div class="reveal relative pop-card-featured rounded-3xl p-7 flex flex-col justify-between shadow-xl my-4 lg:my-0" style="transition-delay: 400ms;">
+                        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#ffb703] text-[#1e293b] font-pop-title text-[11px] sm:text-xs font-black px-3 sm:px-4 py-1.5 rounded-full uppercase shadow-md border-2 border-white whitespace-nowrap">
+                            ★ 最強コスパ ★
+                        </span>
+                        <div>
+                            <div class="font-pop-title text-xs font-extrabold text-[#ff4757] uppercase tracking-wider mb-1">Save 30%</div>
+                            <h4 class="font-pop-title text-xl font-bold text-[#1e293b]">12ヶ月プラン</h4>
+                            <p class="text-xs text-[#64748b] font-medium mt-1 mb-6">確実にステップアップ！</p>
+                            
+                            <div class="mb-6">
+                                <span class="font-pop-title text-4xl font-black text-[#0066ff]">¥680</span>
+                                <span class="text-xs font-bold text-[#94a3b8]"> / 月換算</span>
+                                <div class="text-xs text-[#0066ff] font-bold mt-1">一括払い: ¥8,160</div>
+                            </div>
+
+                            <ul class="space-y-3 text-xs font-bold text-[#475569] pt-6 border-t-2 border-slate-200/80 mb-8">
+                                <li class="flex items-center"><span class="text-[#0066ff] mr-2">✔</span>全レベル（N1〜N5）対応</li>
+                                <li class="flex items-center"><span class="text-[#0066ff] mr-2">✔</span>分野別問題・模擬試験</li>
+                                <li class="flex items-center"><span class="text-[#0066ff] mr-2">✔</span>AI弱点分析レポート</li>
+                                <li class="flex items-center text-[#ff4757] font-black"><span class="mr-2">🎉</span>実質約4ヶ月分が無料！</li>
+                            </ul>
+                        </div>
+                        <a href="#cta" class="block text-center bg-[#ff4757] text-white font-bold py-3.5 rounded-full text-xs hover:bg-[#ff2e44] hover:shadow-md transition active:scale-95">選択する</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. よくある質問 (FAQ Section) -->
+    <section id="faq" class="py-24 bg-[#f0f7ff] border-t-2 border-[#e2e8f0]">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="reveal text-center mb-16">
+                <h2 class="font-pop-title text-sm font-extrabold tracking-widest text-[#0066ff] uppercase mb-2">FAQ</h2>
+                <p class="font-pop-title text-3xl sm:text-4xl font-black tracking-tight text-[#1e293b]">
+                    よくある質問 🤔
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ 1 (ブルー) -->
+                <details class="reveal group bg-white rounded-2xl p-6 border-2 border-[#e2e8f0] [&_summary::-webkit-details-marker]:hidden transition-all duration-300 hover:border-[#0066ff]" style="transition-delay: 100ms;">
+                    <summary class="flex items-center justify-between font-bold text-base text-[#1e293b] cursor-pointer">
+                        <span class="flex items-center"><span class="text-[#0066ff] mr-3 font-pop-title">Q.</span>14日間の無料体験期間中に料金は発生しますか？</span>
+                        <span class="ml-4 flex-shrink-0 transition-transform duration-300 group-open:-rotate-180 text-[#0066ff] font-black">
+                            ▼
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-sm text-[#64748b] font-medium leading-relaxed pl-7">
+                        いいえ、一切発生いたしません！無料体験の開始時にクレジットカード情報の登録も不要ですので、体験期間終了後に自動で課金されるような心配もありません。
+                    </p>
+                </details>
+
+                <!-- FAQ 2 (グリーン) -->
+                <details class="reveal group bg-white rounded-2xl p-6 border-2 border-[#e2e8f0] [&_summary::-webkit-details-marker]:hidden transition-all duration-300 hover:border-[#00b894]" style="transition-delay: 200ms;">
+                    <summary class="flex items-center justify-between font-bold text-base text-[#1e293b] cursor-pointer">
+                        <span class="flex items-center"><span class="text-[#00b894] mr-3 font-pop-title">Q.</span>自分のJLPTレベルに合った問題を選べますか？</span>
+                        <span class="ml-4 flex-shrink-0 transition-transform duration-300 group-open:-rotate-180 text-[#00b894] font-black">
+                            ▼
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-sm text-[#64748b] font-medium leading-relaxed pl-7">
+                        はい！どのプランをご契約いただいても、N1〜N5すべてのレベルのコンテンツにアクセスが可能です。学習の途中で志望レベルを変更することも自由に行えます。
+                    </p>
+                </details>
+
+                <!-- FAQ 3 (パープル) -->
+                <details class="reveal group bg-white rounded-2xl p-6 border-2 border-[#e2e8f0] [&_summary::-webkit-details-marker]:hidden transition-all duration-300 hover:border-[#a29bfe]" style="transition-delay: 300ms;">
+                    <summary class="flex items-center justify-between font-bold text-base text-[#1e293b] cursor-pointer">
+                        <span class="flex items-center"><span class="text-[#a29bfe] mr-3 font-pop-title">Q.</span>スマートフォンやタブレットでも利用できますか？</span>
+                        <span class="ml-4 flex-shrink-0 transition-transform duration-300 group-open:-rotate-180 text-[#a29bfe] font-black">
+                            ▼
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-sm text-[#64748b] font-medium leading-relaxed pl-7">
+                        もちろんです！iPhone、iPad、Androidスマホ、PCなど、お持ちの端末のWebブラウザから快適にご利用いただけます。
+                    </p>
+                </details>
+
+                <!-- FAQ 4 (ピンク) -->
+                <details class="reveal group bg-white rounded-2xl p-6 border-2 border-[#e2e8f0] [&_summary::-webkit-details-marker]:hidden transition-all duration-300 hover:border-[#ff7675]" style="transition-delay: 400ms;">
+                    <summary class="flex items-center justify-between font-bold text-base text-[#1e293b] cursor-pointer">
+                        <span class="flex items-center"><span class="text-[#ff7675] mr-3 font-pop-title">Q.</span>支払い方法にはどのようなものがありますか？</span>
+                        <span class="ml-4 flex-shrink-0 transition-transform duration-300 group-open:-rotate-180 text-[#ff7675] font-black">
+                            ▼
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-sm text-[#64748b] font-medium leading-relaxed pl-7">
+                        各種クレジットカード（Visa、Mastercard、JCB、American Express等）、Apple Pay、Google Payに対応しています。
+                    </p>
+                </details>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. フッター前CTA -->
+    <section id="cta" class="py-24 bg-[#1e293b] text-white text-center border-t-2 border-slate-800">
+        <div class="reveal max-w-3xl mx-auto px-6">
+            <h2 class="font-pop-title text-4xl sm:text-5xl font-black tracking-tight mb-4 leading-tight">
+                さあ、楽しい学習をはじめよう！
+            </h2>
+            <p class="text-slate-300 text-base font-medium sm:text-lg mb-10">
+                14日間無料体験。わずか1分でスタート！
+            </p>
+            <a href="#" class="inline-block bg-[#ff4757] text-white font-bold text-base px-10 py-4 rounded-full hover:bg-[#ff2e44] hover:scale-105 transition shadow-lg active:scale-95">
+                🎉 14日間無料体験をはじめる
+            </a>
+        </div>
+    </section>
+
+    <!-- 7. フッター -->
+    <footer class="bg-[#f0f7ff] text-[#64748b] py-12 border-t-2 border-[#e2e8f0] text-xs font-bold">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <!-- フッター側テキストロゴ -->
+            <div class="font-pop-title text-xl font-black tracking-wide inline-flex items-center space-x-[1px]">
+                <span class="text-[#0066ff]">J</span>
+                <span class="text-[#ffb703]">-</span>
+                <span class="text-[#ff4757]">H</span>
+                <span class="text-[#00b894]">u</span>
+                <span class="text-[#a29bfe]">b</span>
+                <span class="text-[#ff7675] ml-[1px]">!</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-[#0066ff] transition">利用規約</a>
+                <a href="#" class="hover:text-[#0066ff] transition">プライバシーポリシー</a>
+                <a href="#" class="hover:text-[#0066ff] transition">特定商取引法に基づく表記</a>
+            </div>
+            <div>&copy; 2026 J-Hub Inc. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- スクロール検知スクリプト -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -60px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // 一度表示されたら監視を解除
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
